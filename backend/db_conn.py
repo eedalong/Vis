@@ -36,6 +36,15 @@ def drug_sale(batch):
     return records
 
 
+def drug_amount(batch, year, month):
+    query = f'select batch_number, purchaser_province, purchaser_city, sale_year, sale_month, amount from sale{product}_amount where batch_number = %s and sale_year = %s and sale_month = %s;'
+    records = []
+    for row in execute_pg(query, (batch, year, month)):
+        batch_number, purchaser_province, purchaser_city, sale_year, sale_month, amount = row
+        records.append([batch_number, purchaser_province, purchaser_city, sale_year, sale_month, float(amount)])
+    return records
+
+
 if __name__ == '__main__':
     product = 5
     # result = drug_deliver('BY100031')
