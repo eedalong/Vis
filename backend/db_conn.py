@@ -43,14 +43,28 @@ def drug_amount(batch, year, month):
         records.append([batch_number, purchaser_province, purchaser_city, sale_year, sale_month, float(amount)])
     return records
 
+def get_dealers_province(province):
+    query = f'select seller_code_ph, seller_province, seller_city from sale{product} where seller_province = %s;'
+    records = []
+    for row in execute_pg(query, (province,)):
+        seller_code_ph, seller_province, seller_city = row
+        records.append([seller_code_ph, seller_province, seller_city])
+    return records
+
+def get_dealers_city(city):
+    query = f'select seller_code_ph, seller_province, seller_city from sale{product} where seller_city = %s;'
+    records = []
+    for row in execute_pg(query, (city,)):
+        seller_code_ph, seller_province, seller_city = row
+        records.append([seller_code_ph, seller_province, seller_city])
+    return records
 
 if __name__ == '__main__':
     product = 5
     # result = drug_deliver('BY100031')
-    result = drug_sale('BJ38668')
-    result = result[:5]
-
-
-    print(result)
+    #result = drug_sale('BJ38668')
+    #result = result[:5]
+    res = get_dealers_city("福州市")
+    print(res)
 
     conn.close()

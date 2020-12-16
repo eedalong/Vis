@@ -2,14 +2,14 @@ from backend.db_conn import *
 import networkx as nx
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
-
+from typing import List
 class DrugFlow:
     @classmethod
-    def flow(cls, batch, starter, day_range=30):
+    def flow(cls, batch:str, starters:List[str], day_range=30):
         res = drug_sale(batch=batch)
         candidates = []
         for index, record in enumerate(res):
-            if record[1] == starter:
+            if record[1] in starters:
                 candidates.append(index)
         def recursiveFind(idx_res):
             current = res[idx_res]
@@ -23,19 +23,27 @@ class DrugFlow:
         return_res = []
         for idx in candidates:
             return_res.append(res[idx])
+        return_res.sort(key=lambda x:x[0])
         return return_res
 
+    @classmethod
+    def flow_province(cls, batch, province):
+        dealers = get_dealers_province(province)
+        starters = [item[0] for item in dealers]
+        res = cls.flow(batch, starters)
+        for item in res:
+            if item[1] in starters:
+                item[1] = "province"
+            if item[4] in starters:
+                item[4] = "province"
+        return res
 
 
-        '''
-        g = nx.Graph()
-        all_nodes = set([])
-        for index in candidates:
-            record = res[index]
-            g.add_edge(record[1], record[4])
-            all_nodes.add(record[1])
-            all_nodes.add(record[4])
+class Dealer:
+    @classmethod
+    def get_dealers_from_city(cls, city):
+        return get_dealers_city(city)
 
-        nx.draw(g)
-        plt.show()
-        '''
+    @classmethod
+    def get_dealers_from_province(cls, province):
+        return get_dealers_province(province)
