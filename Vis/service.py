@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from typing import List
 class DrugFlow:
     @classmethod
-    def flow(cls, batch:str, starters:List[str], day_range=30):
+    def flow(cls, batch:str, *starters, day_range=30):
         res = drug_sale(batch=batch)
         candidates = []
         for index, record in enumerate(res):
@@ -30,7 +30,7 @@ class DrugFlow:
     def flow_province(cls, batch, province):
         dealers = get_dealers_province(province)
         starters = [item[0] for item in dealers]
-        res = cls.flow(batch, starters)
+        res = cls.flow(batch, *starters)
         for item in res:
             if item[1] in starters:
                 item[1] = "province"
