@@ -1,5 +1,4 @@
 import psycopg2 as pypg
-from neo4j import GraphDatabase
 
 conn = pypg.connect(database='postgres', user='postgres', host='39.106.83.49', port='5432')
 cursor = conn.cursor()
