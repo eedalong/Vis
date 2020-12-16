@@ -47,3 +47,18 @@ class Dealer:
     @classmethod
     def get_dealers_from_province(cls, province):
         return get_dealers_province(province)
+
+class SealerPredictor:
+    @classmethod
+    def predict_dealer(cls):
+        pass
+    @classmethod
+    def predict_city(cls):
+        pass
+    @classmethod
+    def predict_province(cls):
+        pass
+    @classmethod
+    def predict_country(cls):
+        pass
+
