@@ -7,7 +7,6 @@ class DrugFlow:
     @classmethod
     def flow(cls, batch, starter, day_range=30):
         res = drug_sale(batch=batch)
-        res = res
         candidates = []
         for index, record in enumerate(res):
             if record[1] == starter:
