@@ -40,6 +40,12 @@ class DrugFlow:
         for idx in candidates:
             return_res.append(res[idx])
         return_res.sort(key=lambda x:x[0])
+        for index in range(len(return_res)):
+            print(return_res[index])
+            try:
+                return_res[index][0] = return_res[index][0].strftime("%Y-%m-%d")
+            except:
+                pass
         return return_res
 
     @classmethod

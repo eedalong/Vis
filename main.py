@@ -3,6 +3,7 @@ from Vis.service import DrugFlow, SellPredictor
 #  For a dealer       #
 #######################
 res = DrugFlow.flow("BJ45743", "BY100002")
+print(res[:10])
 #######################
 #  For province       #
 #######################
