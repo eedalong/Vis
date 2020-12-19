@@ -3,6 +3,22 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from typing import List
+import requests
+import fire
+
+def position(name):
+    url = 'http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=vGXMdnaoFupqsBYi8AUbN9lzvCzbmQIo'%(name)
+    res = requests.get(url)
+    if res.status_code == 200:
+        val = res.json()
+        if val["status"] == 0:
+            retval = {'地址':name,'经度':val['result']['location']['lng'],'纬度':val['result']['location']['lat'],'地区标签':val['result']['level'],'是否精确查找':val['result']['precise']}
+        else:
+            retval = None
+        return retval
+    else:
+        print('无法获取%s经纬度'%name)
+
 class DrugFlow:
     @classmethod
     def flow(cls, batch:str, *starters, day_range=30):
@@ -48,7 +64,17 @@ class Dealer:
     def get_dealers_from_province(cls, province):
         return get_dealers_province(province)
 
-class SealerPredictor:
+class SellPredictor:
+    all_years = [2017, 2018, 2019]
+    @classmethod
+    def sell_province(cls, batch_number, year, month):
+        return drug_amount_province(batch=batch_number, year=year, month=month)
+
+    @classmethod
+    def sell_city(cls, batch_number, year, month, province):
+        return drug_amount_city(batch=batch_number, year=year, month=month, province=province)
+
+
     @classmethod
     def predict_dealer(cls):
         pass
@@ -58,6 +84,7 @@ class SealerPredictor:
     @classmethod
     def predict_province(cls):
         pass
+
     @classmethod
     def predict_country(cls):
         pass

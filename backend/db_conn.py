@@ -25,13 +25,13 @@ def drug_deliver(agent_ph):
 
 def drug_sale(batch):
     query = f'select sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province, ' \
-            f'purchaser_city, sale_amount_factory from sale{product} where batch_number=%s order by sale_date;'
+            f'purchaser_city, sale_amount_factory, seller_agent_historical_level from sale{product} where batch_number=%s order by sale_date;'
     print(query)
     records = []
     for row in execute_pg(query, (batch, )):
-        sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province, purchaser_city, sale_amount_factory = row
+        sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province, purchaser_city, sale_amount_factory, seller_agent_historical_level = row
         records.append([sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province,
-                        purchaser_city, float(sale_amount_factory)])
+                        purchaser_city, float(sale_amount_factory), seller_agent_historical_level])
     return records
 
 
