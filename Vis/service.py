@@ -42,13 +42,21 @@ class DrugFlow:
             return_res.append(res[idx])
         return_res.sort(key=lambda x:x[0])
         for index in range(len(return_res)):
-            # process coordination
+            # process seller coordination
             pos_res = position(return_res[index][3])
             pos = [pos_res["经度"], pos_res["纬度"]]
             if return_res[index][3] in all_city:
                 pos = [pos[0] - random.random(), pos[1] + random.random()]
             return_res[index].append(pos)
             all_city.add(return_res[index][3])
+
+            # process buyer coordination
+            pos_res = position(return_res[index][6])
+            pos = [pos_res["经度"], pos_res["纬度"]]
+            if return_res[index][6] in all_city:
+                pos = [pos[0] - random.random(), pos[1] + random.random()]
+            return_res[index].append(pos)
+            all_city.add(return_res[index][6])
             # process datetime
             try:
                 return_res[index][0] = return_res[index][0].strftime("%Y-%m-%d")
