@@ -1,28 +1,16 @@
-from Vis.service import DrugFlow, SellPredictor, position
+import requests
+import json
 #######################
 #  For a dealer       #
 #######################
-res = DrugFlow.flow("BJ45743", "BY100002")
-print(res[:10])
-#######################
-#  For province       #
-#######################
-res = DrugFlow.flow_province("BJ45743", "福建省")
+res = requests.get("http://0.0.0.0:8001/flow", params={"batch_number":"BJ45743", "starter":"BY100002"})
+print(json.loads(res.content.decode()))
 
-###########################
-#   Get Sells Data        #
-###########################
-#   Get Province Sell Data#
-###########################
-sells = SellPredictor()
-sell_res = sells.sell_province("BJ38668", 2018, 6)
+#################
+# Get Sell Data #
+#################
+res = requests.get("http://0.0.0.0:8001/product/sell/", params={"batch_number":"BJ38668", "year": 2018, "month": 8, "province": ""})
+print(json.loads(res.content.decode()))
 
-##############################
-# Get City Sell In A Province#
-##############################
-sell_res = sells.sell_city("BJ38668", 2018, 6, "山东省")
-
-print(sell_res)
-
-
-print(position("乌鲁木齐"))
+res = requests.get("http://0.0.0.0:8001/product/sell/", params={"batch_number":"BJ38668", "year": 2018, "month": 8, "province": "山东省"})
+print(json.loads(res.content.decode()))
