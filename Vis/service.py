@@ -48,6 +48,7 @@ class DrugFlow:
             if return_res[index][3] in all_city:
                 pos = [pos[0] - random.random(), pos[1] + random.random()]
             return_res[index].append(pos)
+            all_city.add(return_res[index][3])
             # process datetime
             try:
                 return_res[index][0] = return_res[index][0].strftime("%Y-%m-%d")
