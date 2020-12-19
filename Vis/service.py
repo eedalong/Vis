@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from typing import List
 import requests
 import fire
-
+import random
 def position(name):
     url = 'http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=vGXMdnaoFupqsBYi8AUbN9lzvCzbmQIo'%(name)
     res = requests.get(url)
@@ -24,6 +24,7 @@ class DrugFlow:
     def flow(cls, batch:str, *starters, day_range=30):
         res = drug_sale(batch=batch)
         candidates = []
+        all_city = set([])
         for index, record in enumerate(res):
             if record[1] in starters:
                 candidates.append(index)
@@ -41,7 +42,13 @@ class DrugFlow:
             return_res.append(res[idx])
         return_res.sort(key=lambda x:x[0])
         for index in range(len(return_res)):
-            print(return_res[index])
+            # process coordination
+            pos_res = position(return_res[index][3])
+            pos = [pos_res["经度"], pos_res["纬度"]]
+            if return_res[index][3] in all_city:
+                pos = [pos[0] - random.random(), pos[1] + random.random()]
+            return_res[index].append(pos)
+            # process datetime
             try:
                 return_res[index][0] = return_res[index][0].strftime("%Y-%m-%d")
             except:

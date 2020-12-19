@@ -1,4 +1,4 @@
-from Vis.service import DrugFlow, SellPredictor
+from Vis.service import DrugFlow, SellPredictor, position
 #######################
 #  For a dealer       #
 #######################
@@ -25,3 +25,4 @@ sell_res = sells.sell_city("BJ38668", 2018, 6, "山东省")
 print(sell_res)
 
 
+print(position("乌鲁木齐"))
