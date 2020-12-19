@@ -18,4 +18,5 @@ from django.urls import include, path, re_path
 from Vis.views import *
 urlpatterns = [
     path('flow/', Flow.as_view()),
+    path('product/sell/', ProductSale.as_view())
 ]
