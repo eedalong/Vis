@@ -1,0 +1,4 @@
+django-cors-headers
+networkx
+matplotlib
+psycopg2
