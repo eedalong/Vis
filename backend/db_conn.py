@@ -43,6 +43,25 @@ def drug_amount(batch, year, month):
         records.append([batch_number, purchaser_province, purchaser_city, sale_year, sale_month, float(amount)])
     return records
 
+def drug_amount_province(batch, year, month):
+    query = f'select purchaser_province, sum(amount) as province_amount from sale{product}_amount ' \
+            f'where batch_number = %s and sale_year = %s and sale_month = %s group by batch_number, purchaser_province, sale_year, sale_month;'
+    records = []
+    for row in execute_pg(query, (batch, year, month)):
+        purchaser_province, province_amount = row
+        records.append([purchaser_province, float(province_amount)])
+    return records
+
+def drug_amount_city(batch, year, month, province):
+    query = f'select purchaser_city, sum(amount) as city_amount from sale{product}_amount ' \
+            f'where batch_number = %s and sale_year = %s and sale_month = %s and purchaser_province = %s ' \
+            f'group by purchaser_city;'
+    records = []
+    for row in execute_pg(query, (batch, year, month, province)):
+        purchaser_city, city_amount = row
+        records.append([purchaser_city, float(city_amount)])
+    return records
+
 def get_dealers_province(province):
     query = f'select seller_code_ph, seller_province, seller_city from sale{product} where seller_province = %s;'
     records = []
@@ -59,12 +78,15 @@ def get_dealers_city(city):
         records.append([seller_code_ph, seller_province, seller_city])
     return records
 
+
 if __name__ == '__main__':
     product = 5
     # result = drug_deliver('BY100031')
-    #result = drug_sale('BJ38668')
-    #result = result[:5]
-    res = get_dealers_city("福州市")
-    print(res)
-
+    # result = drug_sale('BJ38668')
+    # result = result[:5]
+    # print(result)
+    # res = get_dealers_city("福州市")
+    # print(res)
+    print(drug_amount_province('BJ38668', 2018, 6))
+    print(drug_amount_city('BJ38668', 2018, 6, '陕西省'))
     conn.close()
