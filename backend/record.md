@@ -2,6 +2,7 @@
 
 ## API
 
+获取所有省的销量
 ```python
 result = db_conn.drug_amount_province('BJ38668', 2018, 6)
 # result = [
@@ -15,7 +16,10 @@ result = db_conn.drug_amount_province('BJ38668', 2018, 6)
 #   ['辽宁省', 1115892.8], 
 #   ['陕西省', 120330.8]
 # ]
+```
 
+获取某个省所有市的销量
+```python
 result = db_conn.drug_amount_city('BJ38668', 2018, 6, '陕西省')
 # result = [
 #   ['宝鸡市', 29138.4], 
@@ -24,4 +28,38 @@ result = db_conn.drug_amount_city('BJ38668', 2018, 6, '陕西省')
 #   ['西安市', 67450.0]
 # ]
 
+```
+
+
+### SQL代码备忘
+
+```sql
+-- 创建自己卖给自己的经销商的物化视图
+create materialized view self_sale_agent_5 as (
+  select * from sale5 
+  where seller_code_ph = purchaser_code_ph 
+  and purchaser_property = '经销商'
+);
+
+-- 创建按省聚集的销量统计物化视图
+create materialized view sale5_amount_province as (
+  select batch_number, purchaser_province, sale_year, sale_month, sum(amount) as province_amount from sale5_amount 
+  group by batch_number, purchaser_province, sale_year, sale_month
+);
+
+-- 创建按省市聚集的销量统计物化视图
+cerate materialized view sale5_amount as (
+  select batch_number, purchaser_province, purchaser_city, sale_year, sale_month, sum(sale_amount_factory) as amount 
+  from sale5
+  where purchaser_property <> '经销商' 
+  group by batch_number, purchaser_province, purchaser_city, sale_year, sale_month
+);
+
+-- 创建所有不同经销商的物化视图，对ph建立索引
+create materialized view sale5_seller as (
+  select seller_code_ph, seller_agent_historical_level, seller_province, seller_city 
+  from sale5
+  group by seller_code_ph, seller_agent_historical_level, seller_province, seller_city
+);
+create index sale5_seller_ph on sale5_seller(seller_code_ph);
 ```
