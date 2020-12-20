@@ -239,13 +239,18 @@ def risk_area():
 
 
 def city_list():
+
     query = f'select distinct seller_city from sale5;'
-    records = []
+    query2 = f'select distinct purchaser_city from sale5;'
+    records = set()
     for row in execute_pg(query):
-        records.append(row[0])
+        records.add(row[0])
+
+    for row in execute_pg(query2):
+        records.add(row[0])
 
     with open('city.json', 'w', encoding='utf-8') as f:
-        json.dump(records, f, ensure_ascii=False, indent=2)
+        json.dump(list(records), f, ensure_ascii=False, indent=2)
 
 
 
