@@ -207,23 +207,25 @@ def risk_area():
             aggregated[agent['area']][agent['province']] = {}
         if agent['city'] not in aggregated[agent['area']][agent['province']]:
             aggregated[agent['area']][agent['province']][agent['city']] = {
-                'sc-agents': [],
-                'mc-agents': []
+                'sc-agents': set(),
+                'mc-agents': set()
             }
 
     for batch_number, batch in risk_batch['self-cycle'].items():
         agent_ph = batch[0]
         agent = risk_agents[agent_ph]
-        aggregated[agent['area']][agent['province']][agent['city']]['sc-agents'].append(agent_ph)
+        aggregated[agent['area']][agent['province']][agent['city']]['sc-agents'].add(agent_ph)
     for batch_number, batch in risk_batch['multi-cycle'].items():
         for agent_ph in batch:
             agent = risk_agents[agent_ph]
-            aggregated[agent['area']][agent['province']][agent['city']]['mc-agents'].append(agent_ph)
+            aggregated[agent['area']][agent['province']][agent['city']]['mc-agents'].add(agent_ph)
     for area_name, area in aggregated.items():
         arv = 0
         for province_name, province in aggregated[area_name].items():
             prv = 0
             for city_name, city in aggregated[area_name][province_name].items():
+                city['sc-agents'] = list(city['sc-agents'])
+                city['mc-agents'] = list(city['mc-agents'])
                 city['risk_value'] = len(city['sc-agents']) + len(city['mc-agents'])
                 prv += city['risk_value']
             province['risk_value'] = prv
@@ -250,6 +252,6 @@ if __name__ == '__main__':
     # agent_sale_record()
     # risk_circle()
     # risk_agent_info()
-    # risk_agent_info_area()
-    save_drug_amount()
+    risk_area()
+    # save_drug_amount()
     conn.close()

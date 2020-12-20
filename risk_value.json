@@ -5,44 +5,28 @@
         "sc-agents": [
           "BY122507",
           "BY122521",
-          "BY122521",
-          "BY122521",
           "BY572267",
-          "BY122507",
-          "BY122521",
-          "BY572267",
-          "BY100052",
-          "BY122521",
-          "BY572267",
-          "BY122507",
-          "BY122507",
-          "BY572267",
-          "BY122507",
-          "BY572267"
+          "BY100052"
         ],
         "mc-agents": [
           "BY122509",
-          "BY122509",
           "BY122514"
         ],
-        "risk_value": 19
+        "risk_value": 6
       },
       "延安市": {
         "sc-agents": [],
         "mc-agents": [
-          "PH00011549",
-          "PH00011549",
           "PH00011549"
         ],
-        "risk_value": 3
+        "risk_value": 1
       },
       "渭南市": {
         "sc-agents": [
-          "BY255856",
           "BY255856"
         ],
         "mc-agents": [],
-        "risk_value": 2
+        "risk_value": 1
       },
       "咸阳市": {
         "sc-agents": [
@@ -51,18 +35,17 @@
         "mc-agents": [],
         "risk_value": 1
       },
-      "risk_value": 25
+      "risk_value": 9
     },
     "新疆省": {
       "乌鲁木齐市": {
         "sc-agents": [
-          "BY122489",
-          "BY122485",
           "PHXJLZ1980707",
-          "BY122485"
+          "BY122485",
+          "BY122489"
         ],
         "mc-agents": [],
-        "risk_value": 4
+        "risk_value": 3
       },
       "阿克苏地区": {
         "sc-agents": [
@@ -71,7 +54,7 @@
         "mc-agents": [],
         "risk_value": 1
       },
-      "risk_value": 5
+      "risk_value": 4
     },
     "青海省": {
       "西宁市": {
@@ -83,48 +66,24 @@
       },
       "risk_value": 1
     },
-    "risk_value": 31
+    "risk_value": 14
   },
   "South-浙闽": {
     "福建省": {
       "福州市": {
         "sc-agents": [
           "PH00078871",
-          "PH00078871",
-          "PH00078871",
-          "PH00078871",
-          "BY123022",
-          "BY123022",
           "BY123022"
         ],
         "mc-agents": [],
-        "risk_value": 7
+        "risk_value": 2
       },
       "三明市": {
         "sc-agents": [
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
-          "BY100109",
           "BY100109"
         ],
         "mc-agents": [],
-        "risk_value": 20
+        "risk_value": 1
       },
       "泉州市": {
         "sc-agents": [
@@ -133,98 +92,41 @@
         "mc-agents": [],
         "risk_value": 1
       },
-      "risk_value": 28
+      "risk_value": 4
     },
     "浙江省": {
       "台州市": {
         "sc-agents": [
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
-          "BY558434",
           "BY558434"
         ],
         "mc-agents": [
-          "BY122660",
           "BY122660"
         ],
-        "risk_value": 20
+        "risk_value": 2
       },
       "杭州市": {
         "sc-agents": [],
         "mc-agents": [
-          "PHZJVG512812",
-          "PHZJVG512812",
-          "BY100033"
+          "BY100033",
+          "PHZJVG512812"
         ],
-        "risk_value": 3
+        "risk_value": 2
       },
       "湖州市": {
         "sc-agents": [],
         "mc-agents": [
-          "PH00070303",
-          "PH00070303",
-          "PH00070303",
           "PH00070303"
         ],
-        "risk_value": 4
+        "risk_value": 1
       },
       "温州市": {
         "sc-agents": [
           "PHZJ8541225",
-          "PHZJ8541225",
           "PH00130808",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "PHZJ8541225",
-          "PH00130808",
-          "BY322554",
-          "BY322554",
-          "PH00130808",
-          "PH00130808",
-          "PH00130808",
-          "PHZJ8541225",
-          "BY322554",
-          "PHZJ8541225",
-          "BY322554",
-          "PHZJ8541225",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "PHZJ8541225",
-          "PHZJ8541225",
-          "BY322554",
-          "BY322554",
-          "PHZJ8541225",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "BY322554",
-          "PHZJ8541225"
+          "BY322554"
         ],
         "mc-agents": [],
-        "risk_value": 38
+        "risk_value": 3
       },
       "衢州市": {
         "sc-agents": [],
@@ -236,16 +138,13 @@
       "嘉兴市": {
         "sc-agents": [],
         "mc-agents": [
-          "PH00066941",
-          "PH00066941",
-          "PH00066941",
           "PH00066941"
         ],
-        "risk_value": 4
+        "risk_value": 1
       },
-      "risk_value": 70
+      "risk_value": 10
     },
-    "risk_value": 98
+    "risk_value": 14
   },
   "West-西中": {
     "湖南省": {
@@ -258,22 +157,19 @@
       },
       "长沙市": {
         "sc-agents": [
-          "PH00090124",
-          "BY122949",
-          "BY122950",
           "BY122944",
           "PH00090124",
           "BY122950",
-          "PH00090124"
+          "BY122949"
         ],
         "mc-agents": [
-          "BY122942",
-          "BY122948",
           "PH00090124",
-          "BY122949",
-          "BY100089"
+          "BY122942",
+          "BY100089",
+          "BY122948",
+          "BY122949"
         ],
-        "risk_value": 12
+        "risk_value": 9
       },
       "怀化市": {
         "sc-agents": [
@@ -289,94 +185,30 @@
         ],
         "risk_value": 1
       },
-      "risk_value": 15
+      "risk_value": 12
     },
     "湖北省": {
       "武汉市": {
         "sc-agents": [
-          "PHHB7647501",
+          "BY122931",
           "BY122930",
-          "BY122927",
-          "BY122927",
-          "BY122927",
-          "BY122927",
-          "BY122927",
-          "BY255868",
           "BY643693",
-          "BY255868",
-          "BY255868",
-          "BY122927",
+          "PHHB7647501",
           "BY485415",
-          "BY255868",
-          "BY485415",
-          "BY255868",
-          "BY255868",
           "BY485357",
-          "BY485415",
-          "BY485415",
-          "BY122931",
           "BY255868",
-          "BY122927",
-          "BY255868",
-          "BY485415",
-          "BY485415",
-          "BY485415",
-          "BY643693",
-          "BY122927",
-          "BY255868",
-          "BY255868",
-          "BY122927",
-          "BY485415",
-          "BY122927",
-          "BY122931",
-          "BY485415",
-          "BY122927",
-          "BY122927",
-          "BY122927",
-          "BY643693",
-          "BY122927",
-          "PHHB7647501",
-          "BY485415",
-          "BY122927",
-          "PHHB7647501",
-          "BY122927",
-          "BY485415",
-          "PHHB7647501",
-          "BY485357",
-          "PHHB7647501",
-          "BY255868",
-          "BY255868",
-          "PHHB7647501",
-          "BY255868",
-          "PHHB7647501",
-          "BY485415",
-          "PHHB7647501",
-          "BY255868",
-          "BY255868"
+          "BY122927"
         ],
         "mc-agents": [
           "BY122931",
-          "PHHBNM792310",
-          "BY122895",
-          "BY122930",
+          "PH00020784",
           "BY122930",
           "BY100090",
-          "PH00020784",
-          "BY122895",
-          "PH00020784",
-          "BY122931",
-          "BY100090",
-          "PH00020784",
-          "BY122895",
-          "BY100090",
-          "PH00020784",
-          "BY122931",
-          "BY122931",
-          "BY122931",
           "BY122905",
-          "BY122931"
+          "PHHBNM792310",
+          "BY122895"
         ],
-        "risk_value": 79
+        "risk_value": 15
       },
       "荆门市": {
         "sc-agents": [],
@@ -387,29 +219,18 @@
       },
       "湖北省直辖县级行政区划": {
         "sc-agents": [
-          "PHHB205977",
-          "PHHB205977",
-          "PHHB205977",
           "PHHB205977"
         ],
         "mc-agents": [],
-        "risk_value": 4
+        "risk_value": 1
       },
       "荆州市": {
         "sc-agents": [],
         "mc-agents": [
-          "PH00064080",
           "BY122939",
-          "PH00064080",
-          "PH00064080",
-          "BY122939",
-          "PH00064080",
-          "PH00064080",
-          "PH00064080",
-          "PH00064080",
           "PH00064080"
         ],
-        "risk_value": 10
+        "risk_value": 2
       },
       "黄石市": {
         "sc-agents": [],
@@ -418,20 +239,17 @@
         ],
         "risk_value": 1
       },
-      "risk_value": 95
+      "risk_value": 20
     },
     "河南省": {
       "郑州市": {
         "sc-agents": [],
         "mc-agents": [
-          "BY100077",
-          "BY488850",
           "BY122879",
           "BY100077",
-          "BY100077",
-          "BY100077"
+          "BY488850"
         ],
-        "risk_value": 6
+        "risk_value": 3
       },
       "信阳市": {
         "sc-agents": [
@@ -443,69 +261,57 @@
       "平顶山市": {
         "sc-agents": [],
         "mc-agents": [
-          "BY122869",
-          "PHHNLO1102104"
+          "PHHNLO1102104",
+          "BY122869"
         ],
         "risk_value": 2
       },
       "洛阳市": {
         "sc-agents": [
           "PHHN248837",
-          "PHHN248837",
           "BY122871"
         ],
         "mc-agents": [],
-        "risk_value": 3
+        "risk_value": 2
       },
       "周口市": {
         "sc-agents": [],
         "mc-agents": [
-          "PHHNJ0448034",
-          "PHHNJ0448034",
-          "PHHNJ0448034",
           "PHHNJ0448034"
         ],
-        "risk_value": 4
+        "risk_value": 1
       },
-      "risk_value": 16
+      "risk_value": 9
     },
-    "risk_value": 126
+    "risk_value": 41
   },
   "West-西南": {
     "四川省": {
       "成都市": {
         "sc-agents": [
-          "PHSCZ62838",
           "BY122566",
           "PHSCU99395",
-          "PHSCZ62838",
           "BY122564",
-          "BY122564"
+          "PHSCZ62838"
         ],
         "mc-agents": [
-          "BY122567",
           "BY122567"
         ],
-        "risk_value": 8
+        "risk_value": 5
       },
       "宜宾市": {
         "sc-agents": [],
         "mc-agents": [
-          "PHSC196406",
-          "PHSC196406",
           "PHSC196406"
         ],
-        "risk_value": 3
+        "risk_value": 1
       },
       "南充市": {
         "sc-agents": [
-          "PH00085328",
-          "PH00085328",
-          "PH00085328",
           "PH00085328"
         ],
         "mc-agents": [],
-        "risk_value": 4
+        "risk_value": 1
       },
       "资阳市": {
         "sc-agents": [
@@ -516,54 +322,30 @@
         ],
         "risk_value": 2
       },
-      "risk_value": 17
+      "risk_value": 9
     },
     "云南省": {
       "昆明市": {
         "sc-agents": [
           "PH00062033",
-          "PH00062033",
-          "BY122555",
-          "PH00062033",
-          "PH00062093"
+          "PH00062093",
+          "BY122555"
         ],
         "mc-agents": [],
-        "risk_value": 5
+        "risk_value": 3
       },
-      "risk_value": 5
+      "risk_value": 3
     },
     "贵州省": {
       "贵阳市": {
         "sc-agents": [
           "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "PH00108102",
-          "BY122549",
-          "BY122549",
-          "BY122549",
-          "BY122549"
+          "PH00108102"
         ],
         "mc-agents": [],
-        "risk_value": 24
+        "risk_value": 2
       },
-      "risk_value": 24
+      "risk_value": 2
     },
     "重庆市": {
       "重庆市": {
@@ -576,248 +358,145 @@
       },
       "risk_value": 2
     },
-    "risk_value": 48
+    "risk_value": 16
   },
   "North-鲁晋蒙": {
     "山东省": {
       "烟台市": {
         "sc-agents": [],
         "mc-agents": [
-          "BY100097",
           "BY100097"
         ],
-        "risk_value": 2
+        "risk_value": 1
       },
       "潍坊市": {
         "sc-agents": [
+          "PH00125438",
           "BY100031",
-          "PH00025932",
-          "BY100031",
-          "BY100031",
-          "BY100031",
-          "BY100031",
-          "BY100031",
-          "PH00125438"
+          "PH00025932"
         ],
         "mc-agents": [
           "PHSDIW626121"
         ],
-        "risk_value": 9
+        "risk_value": 4
       },
       "青岛市": {
         "sc-agents": [
           "PHSDRP1045407"
         ],
         "mc-agents": [
+          "BY122444",
           "BY122448",
-          "BY485508",
-          "BY122448",
-          "BY122444"
+          "BY485508"
         ],
-        "risk_value": 5
+        "risk_value": 4
       },
       "淄博市": {
         "sc-agents": [],
         "mc-agents": [
-          "PHSDT46983",
           "PH00000442",
-          "PHSDT46983",
-          "PH00000442"
+          "PHSDT46983"
         ],
-        "risk_value": 4
+        "risk_value": 2
       },
       "济南市": {
         "sc-agents": [
           "BY122463",
-          "BY122463",
-          "BY122463",
-          "BY122463",
-          "BY122463",
-          "BY122463",
-          "BY122463",
-          "BY122463",
-          "BY122463",
-          "BY122463",
-          "BY122463",
           "BY317511",
-          "BY317511",
-          "BY122463",
-          "BY122463",
-          "BY122463",
-          "PHSD196414",
-          "BY122463",
-          "BY122463",
-          "BY317511",
-          "BY122463",
-          "BY122463",
-          "BY122463"
+          "PHSD196414"
         ],
         "mc-agents": [
           "BY100041",
-          "PHSD196414",
-          "BY100041",
           "PHSD196414"
         ],
-        "risk_value": 27
+        "risk_value": 5
       },
       "菏泽市": {
         "sc-agents": [
-          "PH00071330",
           "PHSDLU681137",
-          "PHSDLU681137"
-        ],
-        "mc-agents": [],
-        "risk_value": 3
-      },
-      "临沂市": {
-        "sc-agents": [
-          "BY485365",
-          "BY485365"
+          "PH00071330"
         ],
         "mc-agents": [],
         "risk_value": 2
       },
-      "risk_value": 52
+      "临沂市": {
+        "sc-agents": [
+          "BY485365"
+        ],
+        "mc-agents": [],
+        "risk_value": 1
+      },
+      "risk_value": 19
     },
     "山西省": {
       "大同市": {
         "sc-agents": [
           "BY588817",
-          "BY588817",
-          "BY588817",
-          "BY588817",
-          "PHSXZ31333",
-          "BY588817",
           "PHSXZ31333"
-        ],
-        "mc-agents": [],
-        "risk_value": 7
-      },
-      "太原市": {
-        "sc-agents": [
-          "PHSXGF514011",
-          "PHSXYQ821988"
-        ],
-        "mc-agents": [
-          "BY122846",
-          "BY122846",
-          "BY122846",
-          "BY122846",
-          "BY122846",
-          "BY122846",
-          "BY122846",
-          "BY122846",
-          "BY122846",
-          "BY122846"
-        ],
-        "risk_value": 12
-      },
-      "长治市": {
-        "sc-agents": [
-          "BY123039",
-          "BY123039"
         ],
         "mc-agents": [],
         "risk_value": 2
       },
+      "太原市": {
+        "sc-agents": [
+          "PHSXYQ821988",
+          "PHSXGF514011"
+        ],
+        "mc-agents": [
+          "BY122846"
+        ],
+        "risk_value": 3
+      },
+      "长治市": {
+        "sc-agents": [
+          "BY123039"
+        ],
+        "mc-agents": [],
+        "risk_value": 1
+      },
       "运城市": {
         "sc-agents": [
-          "PH00005856",
-          "PH00005856",
-          "PH00005856",
-          "PH00005856",
           "PH00005856"
         ],
         "mc-agents": [],
-        "risk_value": 5
+        "risk_value": 1
       },
-      "risk_value": 26
+      "risk_value": 7
     },
     "内蒙古省": {
       "乌兰察布市": {
         "sc-agents": [
-          "BY244787",
-          "BY244787",
-          "BY244787",
           "BY244787"
         ],
         "mc-agents": [],
-        "risk_value": 4
+        "risk_value": 1
       },
       "呼伦贝尔市": {
         "sc-agents": [
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
-          "PHHLFD734682",
           "PHHLFD734682"
         ],
         "mc-agents": [],
-        "risk_value": 41
+        "risk_value": 1
       },
       "鄂尔多斯市": {
         "sc-agents": [
-          "PHIM1661232",
-          "PHIM1661232",
-          "PHIM1661232",
-          "PHIM1661232",
-          "PHIM1661232",
-          "PHIM1661232",
-          "PHIM1661232",
           "PHIM1661232"
         ],
         "mc-agents": [],
-        "risk_value": 8
+        "risk_value": 1
       },
-      "risk_value": 53
+      "risk_value": 3
     },
-    "risk_value": 131
+    "risk_value": 29
   },
   "South-苏皖赣": {
     "安徽省": {
       "芜湖市": {
         "sc-agents": [
-          "BY570819",
           "BY570819"
         ],
         "mc-agents": [],
-        "risk_value": 2
+        "risk_value": 1
       },
       "上海市": {
         "sc-agents": [],
@@ -828,32 +507,19 @@
       },
       "淮南市": {
         "sc-agents": [
-          "PH00069013",
           "PH00069013"
         ],
         "mc-agents": [],
-        "risk_value": 2
+        "risk_value": 1
       },
       "合肥市": {
         "sc-agents": [
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
-          "PHAHZ16130",
           "PHAHZ16130"
         ],
         "mc-agents": [
           "PHAHJT304400"
         ],
-        "risk_value": 14
+        "risk_value": 2
       },
       "池州市": {
         "sc-agents": [
@@ -864,30 +530,21 @@
       },
       "滁州市": {
         "sc-agents": [
-          "PHAH284257",
-          "PHAH284257",
-          "PHAH284257",
           "PHAH284257"
         ],
         "mc-agents": [],
-        "risk_value": 4
+        "risk_value": 1
       },
-      "risk_value": 24
+      "risk_value": 7
     },
     "江苏省": {
       "苏州市": {
         "sc-agents": [
-          "BY122697",
-          "BY122697",
-          "BY122697",
-          "BY122697",
-          "BY122696",
-          "BY122697",
           "BY122696",
           "BY122697"
         ],
         "mc-agents": [],
-        "risk_value": 8
+        "risk_value": 2
       },
       "常州市": {
         "sc-agents": [],
@@ -897,18 +554,12 @@
       "扬州市": {
         "sc-agents": [
           "BY569702",
-          "BY569702",
-          "BY100012",
-          "BY569702",
-          "BY569702",
-          "BY569702",
           "BY100012"
         ],
         "mc-agents": [
-          "BY100012",
           "BY100012"
         ],
-        "risk_value": 9
+        "risk_value": 3
       },
       "南通市": {
         "sc-agents": [
@@ -920,19 +571,13 @@
       "南京市": {
         "sc-agents": [
           "PH00138193",
-          "PH00138193",
-          "PH00138193",
           "PHJSZ29375",
-          "PH00138193",
-          "PH00138193",
-          "BY487587",
-          "PH00138193",
-          "PHJSZ29375"
+          "BY487587"
         ],
         "mc-agents": [
           "BY100095"
         ],
-        "risk_value": 10
+        "risk_value": 4
       },
       "淮安市": {
         "sc-agents": [
@@ -943,31 +588,28 @@
       },
       "无锡市": {
         "sc-agents": [
-          "BY122686",
           "BY122686"
         ],
         "mc-agents": [
           "PH00126180",
           "BY100018"
         ],
-        "risk_value": 4
+        "risk_value": 3
       },
       "宿迁市": {
         "sc-agents": [],
         "mc-agents": [
-          "PH00109604",
-          "PH00109604",
           "PH00109604"
         ],
-        "risk_value": 3
+        "risk_value": 1
       },
-      "risk_value": 36
+      "risk_value": 15
     },
     "江西省": {
       "南昌市": {
         "sc-agents": [
-          "BY559051",
           "BY100087",
+          "BY559051",
           "BY122430"
         ],
         "mc-agents": [],
@@ -982,38 +624,18 @@
       },
       "risk_value": 4
     },
-    "risk_value": 64
+    "risk_value": 26
   },
   "North-津冀": {
     "河北省": {
       "唐山市": {
         "sc-agents": [
-          "PHHEQV698567",
-          "BY644339",
-          "BY644339",
-          "BY644339",
-          "PHHEFN499989",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEFN499989",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEQV698567",
           "BY644339",
           "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "PHHEQV698567",
-          "BY644339"
+          "PHHEFN499989"
         ],
         "mc-agents": [],
-        "risk_value": 23
+        "risk_value": 3
       },
       "秦皇岛市": {
         "sc-agents": [
@@ -1026,31 +648,18 @@
       "石家庄市": {
         "sc-agents": [
           "BY122780",
-          "BY122780",
-          "BY122780",
-          "BY122780",
-          "BY122780",
           "PHHEED561695",
-          "BY122780",
-          "BY122780",
-          "BY122780",
-          "PHHEED561695",
-          "BY122780",
-          "BY122780",
-          "BY122760",
-          "BY122760",
           "BY122760"
         ],
         "mc-agents": [],
-        "risk_value": 15
+        "risk_value": 3
       },
       "廊坊市": {
         "sc-agents": [
-          "BY122819",
           "BY122819"
         ],
         "mc-agents": [],
-        "risk_value": 2
+        "risk_value": 1
       },
       "保定市": {
         "sc-agents": [
@@ -1062,32 +671,19 @@
       },
       "衡水市": {
         "sc-agents": [
-          "PH00071253",
-          "PH00071253",
-          "PH00071253",
-          "PH00071253",
-          "PH00071253",
-          "PH00071253",
-          "PH00071253",
-          "PH00071253",
           "PH00071253"
         ],
         "mc-agents": [],
-        "risk_value": 9
+        "risk_value": 1
       },
       "沧州市": {
         "sc-agents": [
-          "PHEK320574",
-          "PHEK320574",
-          "PHEK320574",
-          "PHEK320574",
-          "PHEK320574",
           "PHEK320574"
         ],
         "mc-agents": [],
-        "risk_value": 6
+        "risk_value": 1
       },
-      "risk_value": 59
+      "risk_value": 13
     },
     "天津市": {
       "天津市": {
@@ -1095,72 +691,51 @@
           "BY588883"
         ],
         "mc-agents": [
-          "BY100035",
-          "BY255864"
+          "BY255864",
+          "BY100035"
         ],
         "risk_value": 3
       },
       "risk_value": 3
     },
-    "risk_value": 62
+    "risk_value": 16
   },
   "South-上海": {
     "上海市": {
       "上海市": {
         "sc-agents": [
-          "PH00043771",
           "PH00043771"
         ],
         "mc-agents": [
           "BY100051",
           "BY100078"
         ],
-        "risk_value": 4
+        "risk_value": 3
       },
-      "risk_value": 4
+      "risk_value": 3
     },
-    "risk_value": 4
+    "risk_value": 3
   },
   "North-东北": {
     "辽宁省": {
       "丹东市": {
         "sc-agents": [
-          "PH00134235",
-          "PH00134235",
-          "PH00134235",
-          "PH00134235",
           "PH00134235"
         ],
         "mc-agents": [],
-        "risk_value": 5
+        "risk_value": 1
       },
       "大连市": {
         "sc-agents": [
-          "PHLNLY401843",
-          "PH00104818",
-          "PHLN1368704",
           "PH00104586",
-          "PH00104586",
-          "PH00104586",
-          "PHLN1368704",
-          "PH00104586",
-          "PH00104818",
-          "BY313583",
-          "BY313583",
-          "BY313583",
-          "PH00104818",
           "PH00082630",
-          "PH00104818",
           "PHLNLY401843",
+          "PHLN1368704",
           "BY313583",
-          "PHLNLY401843",
-          "BY313583",
-          "PH00104818",
-          "PH00104818",
-          "BY313583"
+          "PH00104818"
         ],
         "mc-agents": [],
-        "risk_value": 22
+        "risk_value": 6
       },
       "鞍山市": {
         "sc-agents": [],
@@ -1171,76 +746,46 @@
       },
       "辽阳市": {
         "sc-agents": [
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
-          "PHLNUS4941825",
           "PHLNUS4941825"
         ],
         "mc-agents": [],
-        "risk_value": 14
+        "risk_value": 1
       },
       "沈阳市": {
         "sc-agents": [
           "PHLNEF716472",
-          "PHLNEF716472",
-          "PHLNEF716472",
-          "PHLNEF716472",
-          "PHLNEF716472",
-          "BY122629",
           "BY122629"
         ],
         "mc-agents": [
-          "BY100072",
           "BY122618",
           "PH00040044",
-          "BY122618",
-          "PH00040044"
+          "BY100072"
         ],
-        "risk_value": 12
+        "risk_value": 5
       },
-      "risk_value": 54
+      "risk_value": 14
     },
     "黑龙江省": {
       "大庆市": {
         "sc-agents": [
-          "PH00081970",
-          "PH00081970",
-          "PH00081970",
           "PH00081970"
         ],
         "mc-agents": [],
-        "risk_value": 4
+        "risk_value": 1
       },
       "黑河市": {
         "sc-agents": [
-          "PHHL2292169",
-          "PHHL2292169",
           "PHHL2292169"
         ],
         "mc-agents": [],
-        "risk_value": 3
+        "risk_value": 1
       },
       "哈尔滨市": {
         "sc-agents": [
-          "PH00074561",
-          "PH00074561",
-          "PH00074561",
-          "PH00074561",
-          "PH00074561",
           "PH00074561"
         ],
         "mc-agents": [],
-        "risk_value": 6
+        "risk_value": 1
       },
       "牡丹江市": {
         "sc-agents": [
@@ -1251,188 +796,95 @@
       },
       "齐齐哈尔市": {
         "sc-agents": [
-          "PHHLTX501936",
-          "PHHLTX501936",
           "PHHLTX501936"
         ],
         "mc-agents": [],
-        "risk_value": 3
+        "risk_value": 1
       },
-      "risk_value": 17
+      "risk_value": 5
     },
     "吉林省": {
       "长春市": {
         "sc-agents": [
-          "BY543585",
           "BY543585"
         ],
         "mc-agents": [],
-        "risk_value": 2
+        "risk_value": 1
       },
       "吉林市": {
         "sc-agents": [
-          "PHJLPO506497",
-          "PHJLPO506497",
-          "PHJLPO506497",
-          "PHJLPO506497",
-          "PHJLPO506497",
-          "PHJLPO506497",
-          "PHJLPO506497",
-          "PHJLPO506497",
-          "PHJLPO506497",
-          "PHJLPO506497",
           "PHJLPO506497"
         ],
         "mc-agents": [],
-        "risk_value": 11
+        "risk_value": 1
       },
-      "risk_value": 13
+      "risk_value": 2
     },
-    "risk_value": 84
+    "risk_value": 21
   },
   "North-北京": {
     "北京市": {
       "北京市": {
         "sc-agents": [
-          "BY100021",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY556785",
-          "BY540108",
-          "BY540108",
-          "BY540108",
           "BY122755",
-          "BY540108",
-          "BY100021",
-          "BY540108",
-          "BY556785",
-          "BY540108",
-          "BY556785",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
-          "BY540108",
           "BY540108",
           "BY122840",
-          "BY540108",
-          "BY122755",
-          "BY122755",
-          "BY540108",
-          "BY540108",
-          "BY122755",
-          "BY540108",
-          "BY540108",
-          "BY540108"
-        ],
-        "mc-agents": [
-          "BY100021",
-          "BY100021",
-          "BY100021",
-          "BY100021",
-          "BY100021",
-          "BY122755",
-          "BY122826",
-          "BY100021",
-          "BY100021",
-          "BY100021",
+          "BY556785",
           "BY100021"
         ],
-        "risk_value": 50
+        "mc-agents": [
+          "BY122826",
+          "BY122755",
+          "BY100021"
+        ],
+        "risk_value": 8
       },
-      "risk_value": 50
+      "risk_value": 8
     },
-    "risk_value": 50
+    "risk_value": 8
   },
   "South-粤桂琼": {
     "广西省": {
       "柳州市": {
         "sc-agents": [
-          "BY100091",
-          "BY100091",
-          "BY100091",
-          "BY100091",
-          "BY100091",
-          "BY100091",
-          "BY100091",
-          "BY100091",
-          "BY100091",
-          "BY100091",
-          "BY100091",
-          "BY100091",
           "BY100091"
         ],
         "mc-agents": [],
-        "risk_value": 13
+        "risk_value": 1
       },
       "玉林市": {
         "sc-agents": [
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
-          "BY122970",
           "BY122970"
         ],
         "mc-agents": [],
-        "risk_value": 15
+        "risk_value": 1
       },
-      "risk_value": 28
+      "risk_value": 2
     },
     "广东省": {
       "广州市": {
         "sc-agents": [
-          "PH00076370",
-          "PH00076370",
-          "PH00076370",
-          "PH00076370",
           "PH00076370"
         ],
         "mc-agents": [
           "BY100083",
           "BY122990"
         ],
-        "risk_value": 7
+        "risk_value": 3
       },
       "江门市": {
         "sc-agents": [
-          "BY122981",
-          "BY122981",
-          "BY122981",
           "BY122981"
         ],
         "mc-agents": [],
-        "risk_value": 4
+        "risk_value": 1
       },
       "东莞市": {
         "sc-agents": [
-          "PH00080517",
-          "PH00080517",
-          "PH00080517",
-          "PH00080517",
-          "PH00080517",
           "PH00080517"
         ],
         "mc-agents": [],
-        "risk_value": 6
+        "risk_value": 1
       },
       "珠海市": {
         "sc-agents": [
@@ -1441,19 +893,18 @@
         "mc-agents": [],
         "risk_value": 1
       },
-      "risk_value": 18
+      "risk_value": 6
     },
     "海南省": {
       "海口市": {
         "sc-agents": [
-          "BY675377",
           "BY675377"
         ],
         "mc-agents": [],
-        "risk_value": 2
+        "risk_value": 1
       },
-      "risk_value": 2
+      "risk_value": 1
     },
-    "risk_value": 48
+    "risk_value": 9
   }
 }

@@ -142,11 +142,11 @@ class RiskDetector:
         risk_value = {
             area_name: {
                 province_name: {
-                    city_name: city['risk_value'] for city_name, city in province.items()
-                } for province_name, province in area.items()
+                    city_name: city['risk_value'] for city_name, city in province.items() if type(city) != int
+                } for province_name, province in area.items() if type(province) != int
             } for area_name, area in risk_value.items()
         }
-        if query_area is None:
+        if query_area in [None, '']:
             return risk_value
         else:
             return risk_value[query_area]
