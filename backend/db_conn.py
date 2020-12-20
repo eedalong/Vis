@@ -153,7 +153,7 @@ def risk_detect():
     with open('sale-edges-5.json', 'r', encoding='utf-8') as f:
         sale = json.load(f)
         risk_batch= risk_judge(sale)
-        with open('risk_batch.json', 'w', encoding='utf-8') as frb:
+        with open('risk_batch_new.json', 'w', encoding='utf-8') as frb:
             json.dump(risk_batch, frb, ensure_ascii=False, indent=2)
 
 
@@ -264,9 +264,9 @@ if __name__ == '__main__':
     # print(drug_amount_city('BJ38668', 2018, 6, '陕西省'))
     # print(len(self_sale_agent()))
     # agent_sale_record()
-    # risk_circle()
+    risk_detect()
     # risk_agent_info()
     # risk_area()
     # save_drug_amount()
-    city_list()
+    # city_list()
     conn.close()
