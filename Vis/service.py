@@ -24,6 +24,7 @@ class DrugFlow:
     def flow(cls, batch:str, *starters, day_range=30):
         res = drug_sale(batch=batch)
         candidates = []
+        pos_dict = {}
         all_city = set([])
         for index, record in enumerate(res):
             if record[1] in starters:
@@ -47,6 +48,9 @@ class DrugFlow:
             pos = [pos_res["经度"], pos_res["纬度"]]
             if return_res[index][3] in all_city:
                 pos = [pos[0] - random.random(), pos[1] + random.random()]
+            pos = pos_dict.get(return_res[index][1], None) or pos
+
+            pos_dict[return_res[index][1]] = pos
             return_res[index].append(pos)
             all_city.add(return_res[index][3])
 
@@ -55,6 +59,9 @@ class DrugFlow:
             pos = [pos_res["经度"], pos_res["纬度"]]
             if return_res[index][6] in all_city:
                 pos = [pos[0] - random.random(), pos[1] + random.random()]
+            pos = pos_dict.get(return_res[index][4], None) or pos
+
+            pos_dict[return_res[index][4]] = pos
             return_res[index].append(pos)
             all_city.add(return_res[index][6])
             # process datetime
@@ -90,11 +97,21 @@ class SellPredictor:
     all_years = [2017, 2018, 2019]
     @classmethod
     def sell_province(cls, batch_number, year, month):
-        return drug_amount_province(batch=batch_number, year=year, month=month)
+        res = drug_amount_province(batch=batch_number, year=year, month=month)
+        for index in range(len(res)):
+            pos_res = position(res[index][0])
+            pos = [pos_res["经度"], pos_res["纬度"]]
+            res[index].append(pos)
+        return res
 
     @classmethod
     def sell_city(cls, batch_number, year, month, province):
-        return drug_amount_city(batch=batch_number, year=year, month=month, province=province)
+        res = drug_amount_city(batch=batch_number, year=year, month=month, province=province)
+        for index in range(len(res)):
+            pos_res = position(res[index][0])
+            pos = [pos_res["经度"], pos_res["纬度"]]
+            res[index].append(pos)
+        return res
 
 
     @classmethod
