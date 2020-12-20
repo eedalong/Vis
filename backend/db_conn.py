@@ -1,4 +1,7 @@
 import psycopg2 as pypg
+import json
+from risk_judge import BatchGraph, risk_judge
+import os
 
 conn = pypg.connect(database='postgres', user='postgres', host='39.106.83.49', port='5432')
 cursor = conn.cursor()
@@ -93,15 +96,127 @@ def self_sale_agent():
     return records
 
 
+def agent_sale_record():
+    query = f'select seller_code_ph, purchaser_code_ph, batch_number from sale{product} ' \
+            f'where purchaser_property = \'经销商\' ' \
+            f'group by seller_code_ph, purchaser_code_ph, batch_number; '
+
+    allsales = {}
+    for row in execute_pg(query):
+        seller_code_ph, purchaser_code_ph, batch_number = row
+        if batch_number not in allsales:
+            allsales[batch_number] = {
+                'agents': set(),
+                'edges': []
+            }
+        allsales[batch_number]['agents'].update([seller_code_ph, purchaser_code_ph])
+        allsales[batch_number]['edges'].append((seller_code_ph, purchaser_code_ph))
+
+    with open('sale-edges-5.json', 'w', encoding='utf-8') as f:
+        for batch_number, batch in allsales.items():
+            batch['agents'] = list(batch['agents'])
+        json.dump(allsales, f, ensure_ascii=False, indent=2)
+
+
+def risk_detect():
+    with open('sale-edges-5.json', 'r', encoding='utf-8') as f:
+        sale = json.load(f)
+        risk_batch= risk_judge(sale)
+        with open('risk_batch.json', 'w', encoding='utf-8') as frb:
+            json.dump(risk_batch, frb, ensure_ascii=False, indent=2)
+
+
+def risk_agent_info():
+    with open('risk_batch.json', 'r', encoding='utf-8') as f:
+        risk_batch = json.load(f)
+
+    risk_agents = set()
+    for agents in risk_batch['self-cycle'].values():
+        risk_agents.update(agents)
+    for agents in risk_batch['multi-cycle'].values():
+        risk_agents.update(agents)
+
+    risk_agents = {
+        agent: {
+            'ph': agent,
+            'area': '',
+            'province': '',
+            'city': ''
+        } for agent in risk_agents
+    }
+    query = f'select seller_agent_business_area_small, seller_province, seller_city from seller where seller_code_ph = %s;'
+    for agent in risk_agents:
+        for row in execute_pg(query, (agent, )):
+            seller_agent_business_area_small, seller_province, seller_city = row
+            risk_agents[agent]['area'] = seller_agent_business_area_small
+            risk_agents[agent]['province'] = seller_province
+            risk_agents[agent]['city'] = seller_city
+
+    with open('risk_agent_province_city.json', 'w', encoding='utf-8') as f:
+        json.dump(risk_agents, f, ensure_ascii=False, indent=2)
+
+
+def risk_area():
+    if os.path.isfile('risk_value.json'):
+        with open('risk_value.json', 'r', encoding='utf-8') as f:
+            risk_value = json.load(f)
+        return risk_value
+
+    with open('risk_agent_province_city.json', 'r', encoding='utf-8') as f:
+        risk_agents = json.load(f)
+    with open('risk_batch.json', 'r', encoding='utf-8') as f:
+        risk_batch = json.load(f)
+
+    aggregated = {}
+    for agent_ph, agent in risk_agents.items():
+        if agent['area'] not in aggregated:
+            aggregated[agent['area']] = {}
+        if agent['province'] not in aggregated[agent['area']]:
+            aggregated[agent['area']][agent['province']] = {}
+        if agent['city'] not in aggregated[agent['area']][agent['province']]:
+            aggregated[agent['area']][agent['province']][agent['city']] = {
+                'sc-agents': [],
+                'mc-agents': []
+            }
+
+    for batch_number, batch in risk_batch['self-cycle'].items():
+        agent_ph = batch[0]
+        agent = risk_agents[agent_ph]
+        aggregated[agent['area']][agent['province']][agent['city']]['sc-agents'].append(agent_ph)
+    for batch_number, batch in risk_batch['multi-cycle'].items():
+        for agent_ph in batch:
+            agent = risk_agents[agent_ph]
+            aggregated[agent['area']][agent['province']][agent['city']]['mc-agents'].append(agent_ph)
+    for area_name, area in aggregated.items():
+        arv = 0
+        for province_name, province in aggregated[area_name].items():
+            prv = 0
+            for city_name, city in aggregated[area_name][province_name].items():
+                city['risk_value'] = len(city['sc-agents']) + len(city['mc-agents'])
+                prv += city['risk_value']
+            province['risk_value'] = prv
+            arv += prv
+        area['risk_value'] = arv
+
+    with open('risk_value.json', 'w', encoding='utf-8') as f:
+        json.dump(aggregated, f, ensure_ascii=False, indent=2)
+
+    return aggregated
+
+
+
 if __name__ == '__main__':
     product = 5
     # result = drug_deliver('BY100031')
     # result = drug_sale('BJ38668')
     # result = result[:5]
     # print(result)
-    res = get_dealers_city("福州市")
-    print(res)
+    # res = get_dealers_city("福州市")
     # print(drug_amount_province('BJ38668', 2018, 6))
     # print(drug_amount_city('BJ38668', 2018, 6, '陕西省'))
-    print(len(self_sale_agent()))
+    # print(len(self_sale_agent()))
+    # agent_sale_record()
+    # risk_circle()
+    # risk_agent_info()
+    risk_agent_info_area()
     conn.close()

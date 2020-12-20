@@ -62,4 +62,38 @@ create materialized view sale5_seller as (
   group by seller_code_ph, seller_agent_historical_level, seller_province, seller_city
 );
 create index sale5_seller_ph on sale5_seller(seller_code_ph);
+
+-- 创建所有不同经销商对一批次药品总售出销量的物化视图
+create materialized view agent_seller_amount_5 as (
+  select seller_code_ph, batch_number, sum(sale_amount_factory) as amount
+  from sale5
+  group by seller_code_ph, batch_number
+);
+create index agent_seller_amount_5_seller_ph on agent_seller_amount_5(seller_code_ph);
+
+-- 创建所有不同经销商对一批次药品总买入销量的物化视图
+create materialized view agent_purchaser_amount_5 as (
+  select purchaser_code_ph, batch_number, sum(sale_amount_factory) as amount
+  from sale5 
+  where purchaser_property = '经销商'  
+  group by purchaser_code_ph, batch_number
+);
+create index agent_purchaser_amount_5_purchaser_ph on agent_purchaser_amount_5(purchaser_code_ph);
+
+select * from agent_seller_amount_5 join agent_purchaser_amount_5 
+  on agent_seller_amount_5.seller_code_ph = agent_purchaser_amount_5.purchaser_code_ph
+  and agent_seller_amount_5.batch_number = agent_purchaser_amount_5.batch_number 
+  ;
+
+-- 查找所有distinct的交易记录（经销商之间）
+select seller_code_ph, purchaser_code_ph, batch_number
+  from sale5 
+  where purchaser_property = '经销商' and batch_number = 'BJ09768' 
+  group by seller_code_ph, purchaser_code_ph, batch_number;
 ```
+
+### 算法
+
+1. 找出所有的自环结点
+2. 找出所有入流量和出流量差异很大的结点
+3. 找出对一批药的环

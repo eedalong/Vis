@@ -12,12 +12,18 @@ def position(name):
     if res.status_code == 200:
         val = res.json()
         if val["status"] == 0:
-            retval = {'地址':name,'经度':val['result']['location']['lng'],'纬度':val['result']['location']['lat'],'地区标签':val['result']['level'],'是否精确查找':val['result']['precise']}
+            retval = {
+                '地址': name,
+                '经度': val['result']['location']['lng'],
+                '纬度': val['result']['location']['lat'],
+                '地区标签': val['result']['level'],
+                '是否精确查找': val['result']['precise']
+            }
         else:
             retval = None
         return retval
     else:
-        print('无法获取%s经纬度'%name)
+        print('无法获取%s经纬度' % name)
 
 class DrugFlow:
     @classmethod
@@ -128,3 +134,19 @@ class SellPredictor:
     def predict_country(cls):
         pass
 
+
+class RiskDetector:
+    @classmethod
+    def risk_area(cls, query_area=None):
+        risk_value = risk_area()
+        risk_value = {
+            area_name: {
+                province_name: {
+                    city_name: city['risk_value'] for city_name, city in province.items()
+                } for province_name, province in area.items()
+            } for area_name, area in risk_value.items()
+        }
+        if query_area is None:
+            return risk_value
+        else:
+            return risk_value[query_area]
