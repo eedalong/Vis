@@ -1,6 +1,6 @@
 import psycopg2 as pypg
 import json
-from risk_judge import BatchGraph, risk_judge
+from algorithm import BatchGraph, risk_judge
 import os
 
 conn = pypg.connect(database='postgres', user='postgres', host='39.106.83.49', port='5432')
@@ -65,6 +65,27 @@ def drug_amount_city(batch, year, month, province):
         purchaser_city, city_amount = row
         records.append([purchaser_city, float(city_amount)])
     return records
+
+
+def save_drug_amount():
+    province_query = f'select sale_year, sale_month, purchaser_province, sum(province_amount) as province_amount ' \
+                     f'from sale{product}_amount_province ' \
+                     f'group by sale_year, sale_month, purchaser_province; '
+    city_query = f'select sale_year, sale_month, purchaser_province, purchaser_city, sum(amount) as city_amount ' \
+                 f'from sale{product}_amount ' \
+                 f'group by sale_year, sale_month, purchaser_province, purchaser_city; '
+
+    with open('province_amount.csv', 'w', encoding='utf-8') as f:
+        for row in execute_pg(province_query):
+            sale_year, sale_month, purchaser_province, province_amount = row
+            f.write(f'{",".join([str(sale_year), str(sale_month), purchaser_province, str(float(province_amount))])}\n')
+
+    with open('city_amount.csv', 'w', encoding='utf-8') as f:
+        for row in execute_pg(city_query):
+            sale_year, sale_month, purchaser_province, purchaser_city, city_amount = row
+            f.write(f'{",".join([str(sale_year), str(sale_month), purchaser_province, purchaser_city, str(float(city_amount))])}\n')
+
+
 
 def get_dealers_province(province):
     query = f'select seller_code_ph, seller_province, seller_city ' \
@@ -218,5 +239,6 @@ if __name__ == '__main__':
     # agent_sale_record()
     # risk_circle()
     # risk_agent_info()
-    risk_agent_info_area()
+    # risk_agent_info_area()
+    save_drug_amount()
     conn.close()

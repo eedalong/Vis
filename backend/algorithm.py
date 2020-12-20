@@ -1,8 +1,6 @@
 import json
 import numpy as np
-
-
-
+from matplotlib import pyplot as plt
 
 
 class BatchGraph:
@@ -45,7 +43,6 @@ class BatchGraph:
 
 
 def risk_judge(sale):
-    # sc_agent = set()
     risk_batch = {
         'self-cycle': {},
         'multi-cycle': {}
@@ -83,3 +80,40 @@ def risk_judge(sale):
             if mc_slice.size > 0:
                 risk_batch['multi-cycle'][graph.batch_number] = [graph.agents[sc_id] for sc_id in mc_slice]
     return risk_batch
+
+
+def predict_amount():
+    # province: sale_year, sale_month, purchaser_province, province_amount
+    # 2015.1 - 2019.9
+    provinces = {}
+    with open('province_amount.csv', 'r', encoding='utf-8') as f:
+        for line in f:
+            row = line[:-1].split(',')
+            sale_year, sale_month, purchaser_province, province_amount = row
+            if purchaser_province not in provinces:
+                provinces[purchaser_province] = {
+                    'time': [],
+                    'amount': []
+                }
+            time_int = (int(sale_year) - 2015) * 12 + int(sale_month) - 1
+            provinces[purchaser_province]['time'].append(time_int)
+            provinces[purchaser_province]['amount'].append(float(province_amount))
+
+    # for province_name, province in provinces.items():
+
+
+    province_name = '北京市'
+    province = provinces['北京市']
+    # plt.plot(province['time'], province['amount'], color='blue', label=province_name)
+
+    plt.scatter(province['time'], province['amount'], color='blue', linewidths=1)
+
+    plt.xlabel('Vertices Size')
+    plt.ylabel('Logarithm Time (ms)')
+
+    plt.legend()
+    plt.show()
+
+
+if __name__ == '__main__':
+    predict_amount()
