@@ -28,6 +28,10 @@ def position(name):
     else:
         print('无法获取%s经纬度' % name)
 
+def pos_cache(name):
+    cache = open("cache.json")
+    return cache[name]
+
 class DrugFlow:
     @classmethod
     def flow(cls, batch:str, *starters, day_range=30):
@@ -58,7 +62,7 @@ class DrugFlow:
         return_res.sort(key=lambda x:x[0])
         for index in range(len(return_res)):
             # process seller coordination
-            pos_res = position(return_res[index][3])
+            pos_res = pos_cache(return_res[index][3])
             pos = [pos_res["经度"], pos_res["纬度"]]
             if return_res[index][3] in all_city:
                 pos = [pos[0] - random.random(), pos[1] + random.random()]
@@ -69,7 +73,7 @@ class DrugFlow:
             all_city.add(return_res[index][3])
 
             # process buyer coordination
-            pos_res = position(return_res[index][6])
+            pos_res = pos_cache(return_res[index][6])
             pos = [pos_res["经度"], pos_res["纬度"]]
             if return_res[index][6] in all_city:
                 pos = [pos[0] - random.random(), pos[1] + random.random()]
@@ -113,7 +117,7 @@ class SellPredictor:
     def sell_province(cls, batch_number, year, month):
         res = drug_amount_province(batch=batch_number, year=year, month=month)
         for index in range(len(res)):
-            pos_res = position(res[index][0])
+            pos_res = pos_cache(res[index][0])
             pos = [pos_res["经度"], pos_res["纬度"]]
             res[index].append(pos)
         return res
@@ -122,7 +126,7 @@ class SellPredictor:
     def sell_city(cls, batch_number, year, month, province):
         res = drug_amount_city(batch=batch_number, year=year, month=month, province=province)
         for index in range(len(res)):
-            pos_res = position(res[index][0])
+            pos_res = pos_cache(res[index][0])
             pos = [pos_res["经度"], pos_res["纬度"]]
             res[index].append(pos)
         return res

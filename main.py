@@ -8,14 +8,16 @@ from Vis.service import position
 ##########################################
 #     CACHE CITY COORDINATION            #
 ##########################################
-with open("cache.json", "w") as res_json:
-    cache_res = {}
-    with open("city.json") as city_json:
-        citys = json.load(city_json)
-        for city in citys:
-            res = position(city)
-            cache_res[city] = res
-    json.dumps()
+
+cache_res = {}
+with open("city.json") as city_json:
+    citys = json.load(city_json)
+    for city in citys:
+        res = position(city)
+        cache_res[city] = res
+    json.dump(cache_res, open("cache.json", "w", encoding="utf8"))
+
+
 
 
 
