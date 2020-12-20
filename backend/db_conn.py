@@ -238,6 +238,16 @@ def risk_area():
     return aggregated
 
 
+def city_list():
+    query = f'select distinct seller_city from sale5;'
+    records = []
+    for row in execute_pg(query):
+        records.append(row[0])
+
+    with open('city.json', 'w', encoding='utf-8') as f:
+        json.dump(records, f, ensure_ascii=False, indent=2)
+
+
 
 if __name__ == '__main__':
     product = 5
@@ -252,6 +262,7 @@ if __name__ == '__main__':
     # agent_sale_record()
     # risk_circle()
     # risk_agent_info()
-    risk_area()
+    # risk_area()
     # save_drug_amount()
+    city_list()
     conn.close()
