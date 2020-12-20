@@ -97,7 +97,6 @@ def save_drug_amount():
             f.write(f'{",".join([str(sale_year), str(sale_month), purchaser_province, purchaser_city, str(float(city_amount))])}\n')
 
 
-
 def get_dealers_province(province):
     query = f'select seller_code_ph, seller_province, seller_city ' \
             f'from sale{product}_seller ' \
