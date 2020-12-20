@@ -1,6 +1,6 @@
 import psycopg2 as pypg
 import json
-from algorithm import BatchGraph, risk_judge
+from backend.algorithm import BatchGraph, risk_judge
 import os
 
 conn = pypg.connect(database='postgres', user='postgres', host='39.106.83.49', port='5432')
@@ -25,6 +25,17 @@ def drug_deliver(agent_ph):
         records.append([deliver_id, distributor_code, float(amount_factory)])
     return records
 
+def drug_sale_dealer(dealer):
+    query = f'select sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province, ' \
+            f'purchaser_city, sale_amount_factory, seller_agent_historical_level,purchaser_agent_historical_level from sale{product} where seller_code_ph=%s order by sale_date;'
+    records = []
+    for row in execute_pg(query, (dealer,)):
+        sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province, purchaser_city, \
+        sale_amount_factory, seller_agent_historical_level, purchaser_agent_historical_level = row
+        records.append([sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province,
+                        purchaser_city, float(sale_amount_factory), seller_agent_historical_level,
+                        purchaser_agent_historical_level or 'Tier 2'])
+    return records
 
 def drug_sale(batch):
     query = f'select sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province, ' \

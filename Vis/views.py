@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from codex.baseview import APIView
-from Vis.service import  DrugFlow, SellPredictor
+from Vis.service import  DrugFlow, SellPredictor, RiskDetector
 # Create your views here.
 
 class Flow(APIView):
@@ -17,3 +17,9 @@ class ProductSale(APIView):
         else:
             return SellPredictor.sell_province(batch_number=batch, year=year, month=month)
 
+class Risk(APIView):
+    def get(self):
+        self.check_input("query_area")
+        query_area = self.input["query_area"]
+        res = RiskDetector.risk_area(query_area)
+        return res

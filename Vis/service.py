@@ -121,7 +121,7 @@ class SellPredictor:
 
 
     @classmethod
-    def predict_dealer(cls):
+    def predict_dealer(cls,dealer_id):
         pass
     @classmethod
     def predict_city(cls):
