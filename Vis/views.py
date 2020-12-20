@@ -23,3 +23,9 @@ class Risk(APIView):
         query_area = self.input["query_area"]
         res = RiskDetector.risk_area(query_area)
         return res
+
+class CycleRisk(APIView):
+    def get(self):
+        self.check_input("batch_number")
+        res = RiskDetector.risk_multi(self.input["batch_number"])
+        return res
