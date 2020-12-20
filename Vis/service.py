@@ -7,6 +7,8 @@ import requests
 import fire
 import random
 import json
+import time
+
 def position(name):
     url = 'http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=vGXMdnaoFupqsBYi8AUbN9lzvCzbmQIo'%(name)
     res = requests.get(url)
@@ -29,13 +31,18 @@ def position(name):
 class DrugFlow:
     @classmethod
     def flow(cls, batch:str, *starters, day_range=30):
+        start = time.time()
         res = drug_sale(batch=batch)
+        print("time consuming for drug sale ", time.time() - start)
+        start = time.time()
+
         candidates = []
         pos_dict = {}
         all_city = set([])
         for index, record in enumerate(res):
             if record[1] in starters:
                 candidates.append(index)
+
         def recursiveFind(idx_res):
             current = res[idx_res]
             for index in range(idx_res+1, len(res)):
@@ -154,7 +161,9 @@ class RiskDetector:
 
     @classmethod
     def risk_multi(cls, batch):
-        with json.load("risk_batch.json") as risk_batch:
+        start = time.time()
+        with open("risk_batch.json") as risk_batch_file:
+            risk_batch = json.load(risk_batch_file)
             agents = risk_batch["multi-cycle"][batch]
             all_data = drug_sale(batch)
             starter = None
@@ -162,8 +171,10 @@ class RiskDetector:
                 if item[1] in agents:
                     starter = item[1]
                     break
-        res = DrugFlow.flow(batch, starter=starter)
+        res = DrugFlow.flow(batch, starter)
         res.append(agents)
+        print("check total time ", time.time() - start)
+        return res
 
 
 
