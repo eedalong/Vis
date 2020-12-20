@@ -6,6 +6,7 @@ from typing import List
 import requests
 import fire
 import random
+import json
 def position(name):
     url = 'http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=vGXMdnaoFupqsBYi8AUbN9lzvCzbmQIo'%(name)
     res = requests.get(url)
@@ -150,3 +151,21 @@ class RiskDetector:
             return risk_value
         else:
             return risk_value[query_area]
+
+    @classmethod
+    def risk_multi(cls, batch):
+        with json.load("risk_batch.json") as risk_batch:
+            agents = risk_batch["multi-cycle"][batch]
+            all_data = drug_sale(batch)
+            starter = None
+            for item in all_data:
+                if item[1] in agents:
+                    starter = item[1]
+                    break
+        res = DrugFlow.flow(batch, starter=starter)
+        res.append(agents)
+
+
+
+
+
