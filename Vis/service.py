@@ -10,7 +10,7 @@ import json
 import time
 
 def position(name):
-    url = 'http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=vGXMdnaoFupqsBYi8AUbN9lzvCzbmQIo'%(name)
+    url = 'http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=znaraUep880G8Nsc4v3yfkGd4ZIjbNKE'%(name)
     res = requests.get(url)
     if res.status_code == 200:
         val = res.json()
@@ -29,7 +29,8 @@ def position(name):
         print('无法获取%s经纬度' % name)
 
 def pos_cache(name):
-    cache = open("cache.json")
+    cache = json.load(open("cache.json"))
+    print(cache)
     return cache[name]
 
 class DrugFlow:
