@@ -20,5 +20,5 @@ urlpatterns = [
     path('flow/', Flow.as_view()),
     path('product/sell/', ProductSale.as_view()),
     path("risk/", Risk.as_view()),
-    path("risk/cycle", CycleRisk.as_view())
+    path("risk/cycle/", CycleRisk.as_view())
 ]
