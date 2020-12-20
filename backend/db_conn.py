@@ -31,7 +31,7 @@ def drug_sale(batch):
         sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province, purchaser_city,\
         sale_amount_factory, seller_agent_historical_level,purchaser_agent_historical_level = row
         records.append([sale_date, seller_code_ph, seller_province, seller_city, purchaser_code_ph, purchaser_province,
-                        purchaser_city, float(sale_amount_factory), seller_agent_historical_level,purchaser_agent_historical_level])
+                        purchaser_city, float(sale_amount_factory), seller_agent_historical_level,purchaser_agent_historical_level or 'Tier 2'])
     return records
 
 
