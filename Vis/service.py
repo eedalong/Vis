@@ -64,7 +64,7 @@ class DrugFlow:
             pos_res = pos_cache(return_res[index][3])
             pos = [pos_res["经度"], pos_res["纬度"]]
             if return_res[index][3] in all_city:
-                pos = [pos[0] - 2 * random.random(), pos[1] + 2 * random.random()]
+                pos = [pos[0] - 2 * random.choice([1, -1]) * random.random(), pos[1] + 2 * random.choice([1, -1]) * random.random()]
             pos = pos_dict.get(return_res[index][1], None) or pos
 
             pos_dict[return_res[index][1]] = pos
@@ -75,7 +75,7 @@ class DrugFlow:
             pos_res = pos_cache(return_res[index][6])
             pos = [pos_res["经度"], pos_res["纬度"]]
             if return_res[index][6] in all_city:
-                pos = [pos[0] - 2 * random.random(), pos[1] + 2 * random.random()]
+                pos = [pos[0] - 2 * random.choice([1, -1]) * random.random(), pos[1] + 2 * random.choice([1, -1]) * random.random()]
             pos = pos_dict.get(return_res[index][4], None) or pos
 
             pos_dict[return_res[index][4]] = pos
