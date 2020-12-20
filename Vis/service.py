@@ -30,7 +30,6 @@ def position(name):
 
 def pos_cache(name):
     cache = json.load(open("cache.json"))
-    print(cache)
     return cache[name]
 
 class DrugFlow:
@@ -177,6 +176,7 @@ class RiskDetector:
                     starter = item[1]
                     break
         res = DrugFlow.flow(batch, starter)
+        res = list(filter(lambda x: x[1] in agents and x[4] in agents, res))
         res.append(agents)
         print("check total time ", time.time() - start)
         return res
