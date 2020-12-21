@@ -90,7 +90,7 @@ $C_1$ 可以通过求解所有满足 $A_{ii} = 1$ 的 $i$ 得到。
   * 在鼠标移至线条上时，使用移动窗口的方式展示药品买卖的具体信息（买卖方的身份ID与本次买卖的具体金额）。
   * 用户可以手动在右侧调节当前所显示的药品记录的事件范围，也可选择自动播放类型，让地图中的买卖记录随着时间流动自行变化。
 
-<img src="C:/main/work/2020Autumn/InfoVis/DrugVIs/Visualization/image/image-20201221012902207.png" alt="image-20201221012902207" style="zoom: 50%;" />
+<img src="figures/image-20201221012902207.png" alt="image-20201221012902207" style="zoom: 50%;" />
 
 ##### 药品销售统计
 
@@ -109,7 +109,7 @@ $C_1$ 可以通过求解所有满足 $A_{ii} = 1$ 的 $i$ 得到。
   * 也可以点击返回按钮，查看全国的所有省份，对于某款药品的销售情况
   * 鼠标移至柱状图上时，会显示对应区域的具体销售情况
 
-<img src="C:/main/work/2020Autumn/InfoVis/DrugVIs/Visualization/image/image-20201221013306377.png" alt="image-20201221013306377" style="zoom:50%;" />
+<img src="figures/image-20201221013306377.png" alt="image-20201221013306377" style="zoom:50%;" />
 
 ##### 区域风险估计
 
@@ -121,7 +121,7 @@ $C_1$ 可以通过求解所有满足 $A_{ii} = 1$ 的 $i$ 得到。
 
   * 用户点击某个省份时，会显示对应省份中不同城市的风险程度。
 
-<img src="C:/main/work/2020Autumn/InfoVis/DrugVIs/Visualization/image/image-20201221013015055.png" alt="image-20201221013015055" style="zoom: 50%;" />
+<img src="figures/image-20201221013015055.png" alt="image-20201221013015055" style="zoom: 50%;" />
 
 ##### 经销商风险买卖检测
 
@@ -139,7 +139,7 @@ $C_1$ 可以通过求解所有满足 $A_{ii} = 1$ 的 $i$ 得到。
   * 在鼠标移至线条上时，使用移动窗口的方式展示药品买卖的具体信息（买卖方的身份ID与本次买卖的具体金额）。
   * 用户可以手动在右侧调节当前所显示的药品记录的事件范围，也可选择自动播放类型，让地图中的买卖记录随着时间流动自行变化。
 
-<img src="C:/main/work/2020Autumn/InfoVis/DrugVIs/Visualization/image/image-20201221013056615.png" alt="image-20201221013056615" style="zoom:50%;" />
+<img src="figures/image-20201221013056615.png" alt="image-20201221013056615" style="zoom:50%;" />
 
 ##### 区域销量预测
 
