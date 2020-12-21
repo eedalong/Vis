@@ -61,12 +61,32 @@ def risk_judge(sale):
     for i, graph in enumerate(graphs):
         if i % 100 == 0:
             print(f'Batch {i}/{nbatches}')
-        sc_slice = np.where(np.diagonal(graph.adjacency) > 0)[0]
-        if sc_slice.size > 0:
-            risk_batch['self-cycle'][graph.batch_number] = [graph.agents[sc_id] for sc_id in sc_slice]
+        risk_batch['self-cycle'][graph.batch_number] = set()
+        risk_batch['multi-cycle'][graph.batch_number] = set()
+        pow = graph.adjacency
+        for i in range(graph.n):
+            sc_slice = np.where(np.diagonal(pow) > 0)[0]
+            for sc_id in sc_slice:
+                if i == 0:
+                    risk_batch['self-cycle'][graph.batch_number].add(sc_id)
+                else:
+                    risk_batch['multi-cycle'][graph.batch_number].add(sc_id)
+            pow = np.matmul(pow, graph.adjacency)
+
+        risk_batch['self-cycle'][graph.batch_number] = list(risk_batch['self-cycle'][graph.batch_number])
+        risk_batch['multi-cycle'][graph.batch_number] = list(risk_batch['multi-cycle'][graph.batch_number])
+
+        # sc_slice = np.where(np.diagonal(graph.adjacency) > 0)[0]
+        # if sc_slice.size > 0:
+        #     risk_batch['self-cycle'][graph.batch_number] = [graph.agents[sc_id] for sc_id in sc_slice]
+
+
+
         # remove self-cycle
-        for j in range(graph.n):
-            graph.adjacency[j, j] = 0
+        # for j in range(graph.n):
+        #     graph.adjacency[j, j] = 0
+
+    return risk_batch
 
     # multi-cycle
     print('-' * 80)
@@ -114,6 +134,3 @@ def predict_amount():
     plt.legend()
     plt.show()
 
-
-if __name__ == '__main__':
-    predict_amount()
