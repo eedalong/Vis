@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="js/GUI-5.js"></script>
+    <script type="text/javascript" src="js/constant.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/lineChart.css">
+    <link rel="stylesheet" type="text/css" href="css/NavigationBar.css">
+</head>
+<body style="height: 100%; margin: 0">
+<div style="height: 5%">
+    <ul>
+        <a href="demo4.html"><li>药品流向</li></a>
+        <a href="demo2.html"><li>销量统计</li></a>
+<!--        <a href="demo5.html"><li>销量预测</li></a>-->
+        <a href="demo6.html"><li>风险评估</li></a>
+        <a href="demo7.html"><li>风险交易</li></a>
+    </ul>
+</div>
+
+<div id="container" ></div>
+<div id="line_chart" >
+</div>
+<div id="console">
+    <div class="dropdown">
+        <button class="dropbtn">预测等级</button>
+        <div class="dropdown-content">
+            <button onclick="selectLevel('country')">全国</button>
+            <button onclick="selectLevel('region')">大区</button>
+            <button onclick="selectLevel('province')">省级</button>
+        </div>
+    </div>
+    <p id="selected_level">country</p>
+</div>
+<script>
+    window.onload=init()
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="/static/js/GUI-4.js"></script>
+    <script type="text/javascript" src="/static/js/log.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/flowMap_style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/NavigationBar.css">
+</head>
+<body style="height: 100%; margin: 0">
+    <div style="height: 5%">
+        <ul>
+            <a href="/demo/4"><li>药品流向</li></a>
+       <a href="/demo/2"><li>销量统计</li></a>
+<!--       <a href="/demo/5"><li>销量预测</li></a>-->
+       <a href="/demo/6"><li>风险评估</li></a>
+       <a href="/demo/7"><li>风险交易</li></a>
+        </ul>
+    </div>
+    <div id="container" >
+    </div>
+    <div id="console" align="center">
+
+        批次<input id="batch" type="text" value="BJ31436">
+        起始销售商<input id="start" type="text" value="BY100002">
+        <button onclick="getData()">确认</button>
+
+        <div id="timeBar">
+
+            <div class="scroll" id="scroll">
+                <div class="bar" id="bar"></div>
+                <div class="mask" id="mask"></div>
+            </div>
+            <button id="back" style="display: inline-block">back</button>
+            <button id="forward" style="display: inline-block">forward</button>
+            <button id="interval" style="display: inline-block">day</button>
+            <button id="autoUpdate" style="display: inline-block">auto</button>
+            <p id="timeText">current:</p>
+        </div>
+
+
+    </div>
+<script>
+    window.onload=init()
+</script>
+</body>
+</html>

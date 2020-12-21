@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from Vis.views import *
 urlpatterns = [
+    re_path(r'^demo/([0-9]+)/', demo),
     path('flow/', Flow.as_view()),
     path('product/sell/', ProductSale.as_view()),
     path("risk/", Risk.as_view()),
     path("risk/cycle/", CycleRisk.as_view()),
-    re_path(r'^', StaticFileView.as_view()),
+    re_path(r'^staticfile/(.+)/(.+)/', StaticFileView.as_view()),
 
 ]

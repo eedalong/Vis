@@ -1,0 +1,96 @@
+body{
+    height: 100%;
+    margin: 0
+}
+
+#container{
+    height: 64%;
+    width: 80%;
+    display: inline-block;
+}
+
+#console{
+    background-color: beige;
+    height: 62%;
+    width: 15%;
+    display: inline-block;
+    position: fixed;
+    top: 7%;
+    right: 0%;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+
+}
+
+#zoom {
+    margin-top: 1%;
+    background-color: #ffffff;
+    color: #4CAF50;
+    padding: 16px;
+    font-size: 16px;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+}
+
+
+.yearSelect{
+    display: inline-block;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.monthSelect{
+    display: inline-block;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.dropbtn {
+    margin-top: 1%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    border: 2px solid #4CAF50;
+    font-size: 16px;
+    /*border: none;*/
+    cursor: pointer;
+    margin-right: 100px;
+    width: 80%;
+;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}

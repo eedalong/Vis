@@ -7,8 +7,12 @@ import Vis.settings as settings
 from django.http import HttpResponse, Http404
 from django.http import StreamingHttpResponse
 import mimetypes
+from django.shortcuts import render
 
-# Create your views here.
+
+def demo(request, demoid):
+    return render(request, f'demo{demoid}.html', {})
+
 
 class Flow(APIView):
     def get(self):
@@ -64,6 +68,7 @@ class StaticFileView(BaseView):
         if not settings.DEBUG:
             self.logger.warn('Please use nginx/apache to serve static files in production!')
             raise Http404()
+        print(self.request)
         rpath = self.request.path.replace('..', '.').strip('/')
         if '__' in rpath:
             raise Http404('Could not access private static file: ' + self.request.path)
