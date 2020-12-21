@@ -30,6 +30,8 @@ def position(name):
 
 def pos_cache(name):
     cache = json.load(open("cache.json"))
+    if not cache.get(name, None):
+        return position(name)
     return cache[name]
 
 class DrugFlow:
